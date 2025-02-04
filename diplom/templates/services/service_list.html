@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table text-center container">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Название</th>
+        <th scope="col">Описание</th>
+        <th scope="col">Стоимость</th>
+        <th scope="col">Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for s in services %}
+      <tr>
+        <th scope="row">{{s.id}}</th>
+        <td>{{s.name}}</td>
+        <td>{{s.description}}</td>
+        <td>{{s.price}}</td>
+        <td>{{s.date}}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+  <div><a href="{% url 'service_create' %}">Создать</a></div>
+
+{% endblock %}
