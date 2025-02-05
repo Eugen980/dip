@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="container card-header bg-secondary text-white">
+    <h1 class="my-4">
+        Информация об услуге
+    </h1>
+    <h2>{{ service.name }}</h2>
+  </div>
+    <div class="card-body bg-light">
+      <div class="container">
+        <div class="row p-1">
+          <div class="col"><h4>Описание</h4></div>
+          <div class="col">{{service.description}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Стоимость</h4></div>
+          <div class="col">{{service.price}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Единица измерения</h4></div>
+          <div class="col">{{service.unit}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">
+            <form action="{% url 'service_update' service.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Изменить</button>
+          </form>
+          <form action="{% url 'service_delete' service.pk %}">
+            <button class="btn btn-danger mb-3" type="submit">Удалить</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock%}

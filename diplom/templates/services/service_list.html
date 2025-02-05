@@ -3,7 +3,12 @@
 {% block content %}
 
 <table class="table text-center container">
-    <h1 align="center">УСЛУГИ</h1>
+  <div class="container">
+    <h1 align="center">Услуги</h1>
+    <form action="{% url 'service_create' %}">
+      <input class="btn btn-primary" type="submit" value="Добавить">
+    </form>
+  </div>
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -21,11 +26,14 @@
         <td>{{s.description}}</td>
         <td>{{s.price}}</td>
         <td>{{s.date}}</td>
+        <td>
+          <form action="{% url 'service_show' s.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>
+          </form>
+        </td>
       </tr>
         {% endfor %}
     </tbody>
   </table>
-
-  <div><a href="{% url 'service_create' %}">Создать</a></div>
 
 {% endblock %}

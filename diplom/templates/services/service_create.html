@@ -2,11 +2,10 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-
-<form method="post" class="container"> 
+<form action="{% url 'service_create' %}" method="post" class="container"> 
     {% csrf_token %}
     {% bootstrap_form form %}
-    <button type="submit">submit</button>
-</form>
+    <button class="btn btn-primary" type="submit">Добавить</button>
+</form> 
 
 {% endblock %}

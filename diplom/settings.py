@@ -1,6 +1,9 @@
 import os
 
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,12 +14,16 @@ PATH_PROJECT = os.path.realpath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#x(h11manc*t#921_&@ddrv6=c9&e$5j1d_t0m1%z690a#$i&%'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['webserver',
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    '.onrender.com']
 
 
 # Application definition
@@ -30,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'diplom',
     'diplom.manager',
-    'django_bootstrap5'
+    'diplom.services',
+    'django_bootstrap5',
+    'diplom.clients',
 
 ]
 
