@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<form method="post" class="container"> 
+    <h1>Изменение данных Клиента</h1>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}
