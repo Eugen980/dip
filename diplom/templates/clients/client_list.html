@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table text-center container">
+    
+    <div class="container">
+      <h1 align="center">Клиенты</h1>
+      <form action="{% url 'client_create' %}">
+        <input class="btn btn-primary" type="submit" value="Добавить">
+      </form>
+    </div>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ФИО</th>
+        <th scope="col">Телефон</th>
+        <th scope="col">Дата рождения</th>
+        <th scope="col">Почта</th>
+        <th scope="col">Услуги</th>
+        <th scope="col">Состояние</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for c in clients %}
+      <tr>
+        <th scope="row">{{c.pk}}</th>
+        <td>{{c.first_name}} {{ c.last_name }} {{ c.patronymic }}</td>
+        <td>{{c.phone}}</td>
+        <td>{{c.date_of_birth}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.services}}</td>
+        <td>{{c.user_state}}</td>
+        <td>
+          <form action="{% url 'client_show' c.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>
+          </form>
+        </td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
