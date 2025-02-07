@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'diplom.services',
     'django_bootstrap5',
     'diplom.clients',
+    'diplom.employees',
 
 ]
 
@@ -84,6 +85,12 @@ DATABASES = {
     }
 }
 DATABASE_URL = os.getenv('DATABASE_URL')
+
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'main'
+LOGIN_REDIRECT_URL = 'main'
+LOGOUT_REDIRECT_URL = 'main'
 
 
 # Password validation
