@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<form action="{% url 'bid_create' %}" method="post" class="container"> 
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button class="btn btn-primary" type="submit">Добавить</button>
+</form> 
+
+{% endblock %}

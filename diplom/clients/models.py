@@ -1,5 +1,7 @@
 from django.db import models
 
+from diplom.services.models import Services
+from diplom.manager.models import Status
 
 class Clients(models.Model):
     date = models.DateTimeField(auto_now_add=True)
@@ -16,5 +18,11 @@ class Clients(models.Model):
     date_of_birth = models.DateTimeField()
     passports_series = models.IntegerField()
     passports_number = models.IntegerField()
-    services = models.IntegerField()
-    user_state = models.IntegerField()
+    services = models.ForeignKey(Services, on_delete=models.DO_NOTHING, verbose_name='Услуги')
+    user_state = models.ForeignKey(Status, on_delete=models.DO_NOTHING, verbose_name='Статус')
+
+    def get_full_name(self):
+        return f'{self.last_name} {self.first_name} {self.patronymic}' 
+
+    def __str__(self):
+        return self.get_full_name()

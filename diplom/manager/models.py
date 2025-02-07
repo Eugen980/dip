@@ -1,12 +1,36 @@
+from django.db import models
 
 
+class Executors(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
 
 
-# class Requests(models.Model):
-#     date = models.DateField(auto_now_add=True)
-#     name = models.CharField(max_length=250, verbose_name='name')
-#     description = models.TextField(max_length=250)
-#     phone = models.CharField(max_length=250)
-#     email = models.EmailField()
-#     client = models.ForeignKey(Clients, on_delete=models.PROTECT)
-#     service = models.CharField(max_length=250)
+class Subdivision(models.Model):
+    name = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return self.name
+
+
+class Position(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+
+class Role(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+
+class Status(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name

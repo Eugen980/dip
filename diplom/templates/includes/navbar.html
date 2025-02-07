@@ -19,7 +19,16 @@
             <a class="nav-link" href="{% url 'client_list' %}">Клиенты</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'main' %}">Товары</a>
+            <a class="nav-link" href="{% url 'bid_list' %}">Заявки</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'order_create' %}">Товары</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'chart_list' %}">Графики</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'main' %}">Отчёты</a>
           </li>
           <li class="nav-item">
             <form action="{% url 'logout' %}" method="post">

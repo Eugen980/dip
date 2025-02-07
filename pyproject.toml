@@ -6,6 +6,8 @@ authors = [
     {name = "Eugen980",email = "zaza980q@mail.ru"}
 ]
 readme = "README.md"
+package_name = [{include = "dip"}]
+
 requires-python = ">=3.10"
 dependencies = [
     "django (>=5.1.6,<6.0.0)",

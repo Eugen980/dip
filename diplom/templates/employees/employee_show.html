@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="container card-header bg-secondary text-white">
+    <h1 class="my-4">
+        Информация о сотруднике
+    </h1>
+    <h2>{{ employee.first_name }} {{ employee.last_name }} {{employee.patronymic }}</h2>
+  </div>
+    <div class="card-body bg-light">
+      <div class="container">
+      <div class="row p-1">
+          <div class="col">{{employee.legal_adress}} / {{ employee.physical_adress }}</div>
+      </div>
+      <hr>
+        <div class="row p-1">
+          <div class="col"><h4>ИНН/КПП</h4></div>
+          <div class="col">{{employee.inn}} / {{employee.snils}}</div>
+        </div>
+        <div class="row p-1">
+            <div class="col"><h4>Должность</h4></div>
+            <div class="col">{{employee.position}}</div>
+          </div>
+          <div class="row p-1">
+            <div class="col"><h4>Подразделение</h4></div>
+            <div class="col">{{employee.subdivision}}</div>
+          </div>
+        <div class="row p-1">
+          <div class="col"><h4>Роль</h4></div>
+          <div class="col">{{employee.role}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Номер телефона</h4></div>
+          <div class="col">{{employee.phone}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Дата рождения</h4></div>
+          <div class="col">{{employee.date_of_birth}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Электронная почта</h4></div>
+          <div class="col">{{employee.email}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Пасортные данные</h4></div>
+          <div class="col">{{employee.passports_series}}  {{ employee.passports_number }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Дата принятия на работу</h4></div>
+          <div class="col">{{employee.date_of_employment}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Дата увольнения</h4></div>
+          <div class="col">{{employee.date_of_dismissal}}</div>
+        </div>
+        <div class="row p-1">
+            <div class="col"><h4>Образование</h4></div>
+            <div class="col">{{employee.education}}</div>
+          </div>
+          <div class="row p-1">
+            <div class="col"><h4>Оклад</h4></div>
+            <div class="col">{{employee.salary}}</div>
+          </div>
+        <div class="row p-1">
+          <div class="col">
+            <form action="{% url 'employee_update' employee.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Изменить</button>
+          </form>
+          <form action="{% url 'employee_delete' employee.pk %}">
+            <button class="btn btn-danger mb-3" type="submit">Удалить</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock%}

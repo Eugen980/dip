@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="container card-header bg-secondary text-white">
+    <h1 class="my-4">
+        Информация о заказе
+    </h1>
+    <h2>{{ order.name }}</h2>
+  </div>
+    <div class="card-body bg-light">
+      <div class="container">
+        <div class="row p-1">
+          <div class="col"><h4>Описание</h4></div>
+          <div class="col">{{order.description}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Телефон</h4></div>
+          <div class="col">{{order.phone}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Почта</h4></div>
+          <div class="col">{{order.email}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Клиент</h4></div>
+          <div class="col">{{order.client.last_name}} {{order.client.first_name}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"></div>
+          <div class="col"><form action="{% url 'order_show' bid.client.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Информация о клиенте</button>
+          </form>
+        </div>
+        </div>
+        <div class="row p-1">
+          <div class="col"><h4>Услуга</h4></div>
+          <div class="col">{{order.service.name}}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col"></div>
+          <div class="col"><form action="{% url 'order_show' bid.service.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Информация об услуге</button>
+          </form>
+        </div>
+        <div class="row p-1">
+          <div class="col">
+            <form action="{% url 'order_update' bid.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Изменить</button>
+          </form>
+          <form action="{% url 'order_delete' bid.pk %}">
+            <button class="btn btn-danger mb-3" type="submit">Удалить</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock%}

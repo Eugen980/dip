@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'diplom.clients',
     'diplom.employees',
+    'diplom.bid',
+    'diplom.orders',
+    'diplom.charts',
 
 ]
 

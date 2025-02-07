@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table text-center container">
+  <div class="container">
+    <h1 align="center">Заявки</h1>
+    <form action="{% url 'bid_create' %}">
+      <input class="btn btn-primary" type="submit" value="Добавить">
+    </form>
+  </div>
+    <thead>
+      <tr>
+        <th scope="col">Дата</th>
+        <th scope="col">Клиент</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for b in bid %}
+      <tr>
+        <td>{{b.date}}</td>
+        <td>{{b.client.last_name}} {{b.client.first_name}}</td>
+        <td>
+          <form action="{% url 'bid_show' b.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>
+          </form>
+        </td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

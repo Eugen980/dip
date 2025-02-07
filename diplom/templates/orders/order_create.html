@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<form method="post" class="container"> 
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+    <form action="{% url 'main' %}" class="container">
+        <button class="btn btn-danger" type="submit">Отмена</button>
+    </form>
+</form> 
+<hr>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+    <h1>Документы</h1>
+    <button class="btn btn-outline-secondary" type="button">Договор</button>
+    <button class="btn btn-outline-secondary" type="button">Акт выполненных работ</button>
+  </div>
+{% endblock %}

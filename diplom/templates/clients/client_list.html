@@ -29,8 +29,8 @@
         <td>{{c.phone}}</td>
         <td>{{c.date_of_birth}}</td>
         <td>{{c.email}}</td>
-        <td>{{c.services}}</td>
-        <td>{{c.user_state}}</td>
+        <td>{{c.services.name}}</td>
+        <td>{{c.user_state.name}}</td>
         <td>
           <form action="{% url 'client_show' c.pk %}">
             <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>

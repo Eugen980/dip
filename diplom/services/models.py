@@ -7,4 +7,6 @@ class Services(models.Model):
     description = models.TextField(max_length=250, verbose_name='Описание')
     price = models.IntegerField(verbose_name='Стоимость')
     unit = models.IntegerField(verbose_name='Единица измерения')
-# Create your models here.
+
+    def __str__(self):
+        return self.name

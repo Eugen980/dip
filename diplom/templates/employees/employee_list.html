@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table text-center container">
+    
+    <div class="container">
+      <h1 align="center">Сотрудники</h1>
+      <form action="{% url 'employee_create' %}">
+        <input class="btn btn-primary" type="submit" value="Добавить">
+      </form>
+    </div>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ФИО</th>
+        <th scope="col">Должность</th>
+        <th scope="col">Подразделение</th>
+        <th scope="col">Роль</th>
+        <th scope="col">Телефон</th>
+        <th scope="col">Почта</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for e in employee %}
+      <tr>
+        <th scope="row">{{e.pk}}</th>
+        <td>{{e.first_name}} {{ e.last_name }} {{ e.patronymic }}</td>
+        <td>{{e.position}}</td>
+        <td>{{e.subdivision}}</td>
+        <td>{{e.role}}</td>
+        <td>{{e.phone}}</td>
+        <td>{{e.email}}</td>
+        <td>
+          <form action="{% url 'employee_show' e.pk %}">
+            <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>
+          </form>
+        </td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
