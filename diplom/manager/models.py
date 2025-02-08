@@ -34,3 +34,10 @@ class Status(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Bank(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name

@@ -10,7 +10,7 @@
       </h1>
 
     <form method="post">
-    <p>Вы уверены, что хотите удалить {{ client.first_name }} {{ client.last_name }} {{ сlient.first_name }} ?</p>
+    <p>Вы уверены, что хотите удалить {{ client.last_name }} {{ client.first_name }} {{ сlient.first_name }} ?</p>
         {% csrf_token %}
       <input class="btn btn-danger" type="submit" value="Да, удалить">
     </form>

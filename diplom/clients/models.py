@@ -1,7 +1,7 @@
 from django.db import models
 
 from diplom.services.models import Services
-from diplom.manager.models import Status
+from diplom.manager.models import Status, Bank
 
 class Clients(models.Model):
     date = models.DateTimeField(auto_now_add=True)
@@ -12,7 +12,7 @@ class Clients(models.Model):
     physical_adress = models.CharField(max_length=250, verbose_name='Фактический адресс')
     inn = models.IntegerField()
     kpp = models.IntegerField()
-    bank = models.IntegerField()
+    bank =models.ForeignKey(Bank, on_delete=models.DO_NOTHING, verbose_name='Банк')
     phone = models.CharField(max_length=14)
     email = models.EmailField()
     date_of_birth = models.DateTimeField()

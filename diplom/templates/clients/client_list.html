@@ -25,7 +25,7 @@
         {% for c in clients %}
       <tr>
         <th scope="row">{{c.pk}}</th>
-        <td>{{c.first_name}} {{ c.last_name }} {{ c.patronymic }}</td>
+        <td>{{ c.last_name }} {{c.first_name}} {{ c.patronymic }}</td>
         <td>{{c.phone}}</td>
         <td>{{c.date_of_birth}}</td>
         <td>{{c.email}}</td>
