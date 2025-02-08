@@ -14,6 +14,7 @@
         <th scope="col">Дата</th>
         <th scope="col">Клиент</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,9 +23,12 @@
         <td>{{b.date}}</td>
         <td>{{b.client.last_name}} {{b.client.first_name}}</td>
         <td>
-          <form action="{% url 'bid_show' b.pk %}">
-            <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>
-          </form>
+            <form class="mb-1" action="{% url 'bid_show' b.pk %}">
+              <button class="btn btn-primary mb-3" type="submit">Подробная информация</button>
+            </form>
+        </td>
+        <td>
+          <button class="btn btn-primary mb-3" type="submit">Создать заказ</button>
         </td>
       </tr>
         {% endfor %}

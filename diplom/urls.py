@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.LoginManagerView.as_view(), name='login'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('bid/', include('diplom.bid.urls')),
+    path('reports/', include('diplom.reports.urls')),
     path('charts/', include('diplom.charts.urls')),
     path('orders/', include('diplom.orders.urls')),
     path('services/', include('diplom.services.urls')),

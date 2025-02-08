@@ -5,7 +5,10 @@
 <form action="{% url 'bid_create' %}" method="post" class="container"> 
     {% csrf_token %}
     {% bootstrap_form form %}
-    <button class="btn btn-primary" type="submit">Добавить</button>
+    <div class="gap-2 d-grid">
+        <button class="btn btn-primary" type="submit">Добавить</button>
+        <button class="btn btn-primary" type="submit">Создать заказ</button>
+    </div>  
 </form> 
 
 {% endblock %}

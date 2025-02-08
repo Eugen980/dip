@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'diplom.bid',
     'diplom.orders',
     'diplom.charts',
+    'diplom.reports',
 
 ]
 
