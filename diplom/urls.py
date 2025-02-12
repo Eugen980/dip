@@ -7,8 +7,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='main'),
+    path('registration/', views.CreateUser.as_view(), name='registration'),
     path('login/', views.LoginManagerView.as_view(), name='login'),
-    path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('bid/', include('diplom.bid.urls')),
     path('reports/', include('diplom.reports.urls')),
     path('charts/', include('diplom.charts.urls')),

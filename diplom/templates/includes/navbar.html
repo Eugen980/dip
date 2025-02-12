@@ -35,11 +35,14 @@
                 {% csrf_token %}
                 <input class="btn nav-link" type="submit" value="Выход">
             </form>
+          </li>
           {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'registration' %}">Registration</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}">Вход</a>
             </li>
-          </li>
           {% endif %}
         </ul>
       </div>
